@@ -84,6 +84,7 @@ class ll{
         currNode.next=currNode.next.next;
         System.out.println("Sucessfully deleted!!!");
     }
+    //BASIC LINKED LIST OPERATIONS
     public void display()
     {
         Node currNode=head;
