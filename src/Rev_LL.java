@@ -25,17 +25,14 @@ class linkedl
     }
     public void revList()
     {
-        Node currnode=head;
-        Node temp= currnode.next.next;  //temp=n3
-        currnode.next.next=currnode;
-        currnode=currnode.next;         //n1=n2
-        head.next=null;                 //n1.next=null
-        while(temp!=null)
+        Node currNode= head;
+        Node prev= null;
+        while(currNode!=null)
         {
-                head=temp;
-                temp=temp.next;
-                head.next=currnode;
-                currnode=head;
+            Node temp = currNode.next;  // temp=n2
+            currNode.next=prev;         // n1->null
+            prev=currNode;              // prev=n1
+            currNode=temp;              // currNode=n2
         }
     }
     public void display()
