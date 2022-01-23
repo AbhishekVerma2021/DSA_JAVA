@@ -95,8 +95,8 @@ class ll{
         {
 
             System.out.print("");
-            currNode=currNode.next;
             System.out.print(currNode.data+" ");
+            currNode=currNode.next;
         }
     }
 }
