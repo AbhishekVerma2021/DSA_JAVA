@@ -18,9 +18,9 @@ class List
 }
 public class Loopdetection
 {
-    public static void main(String[] args)
-    {
-        List l1= new List();
-        for(int i=0;)
-    }
+//    public static void main(String[] args)
+//    {
+//        List l1= new List();
+//        for(int i=0;)
+//    }
 }
