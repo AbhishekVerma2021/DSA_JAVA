@@ -54,7 +54,8 @@ public class LoopDeletion
             ptr1=ptr1.next;
         }
         ptr1.next=null;
-        //        for (ListNode curr = head; curr != null; curr = curr.next)
+//======================================================================================================================
+//        for (ListNode curr = head; curr != null; curr = curr.next)
 //        {
 //            // start a pointer `ptr` from the `slow` node and
 //            // check if it meets the current node `curr`
