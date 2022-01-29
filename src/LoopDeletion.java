@@ -16,7 +16,7 @@ public class LoopDeletion
     {
         ListNode slow=head;
         ListNode fast=head;
-        while(fast.next!=null && fast.next.next!=null)
+        while(fast!=null && fast.next !=null)
         {
             slow=slow.next;
             fast=fast.next.next;
@@ -29,7 +29,7 @@ public class LoopDeletion
     }
     public void Loop_Deletion(ListNode slow)
     {
-        ListNode ptr1= slow;
+        ListNode ptr1= slow,ptr2=head;
         int k=0;
         while(ptr1.next!=slow)
         {
@@ -42,13 +42,14 @@ public class LoopDeletion
             ptr1=ptr1.next;
             k--;
         }
-        while(ptr1!=head)
+        while(ptr1!=ptr2)
         {
-            ptr1=ptr1.next;
-            head=head.next;
+            ptr1=ptr1.next;     //ptr1.next and ptr2.next will be pointing to the junction
+            ptr2=ptr2.next;     //and ptr1=ptr2 will hold the junction value
         }
-        ptr1=head;
-        while(ptr1.next!=head)
+        //As ptr1 is already on juction we need to get the last node so we will start the ptr1
+        //and check if ptr1.next=ptr2(junction) we will break loop there and point it to null
+        while(ptr1.next!=ptr2)
         {
             ptr1=ptr1.next;
         }
