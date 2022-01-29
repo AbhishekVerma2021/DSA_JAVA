@@ -1,3 +1,4 @@
+import java.util.List;
 
 public class LoopDeletion
 {
@@ -22,33 +23,78 @@ public class LoopDeletion
             if(slow==fast)
             {
                 System.out.println("Yes there exists a Loop in LinkedList!!!");
-                Loop_Deletion(slow);
+                Loop_Deletion(slow); //'slow' will be pointing to the mem
             }
         }
     }
-    public void Loop_Deletion(ListNode LoopPoint)
+    public void Loop_Deletion(ListNode slow)
     {
-        ListNode p1=LoopPoint;
-        ListNode p2=LoopPoint;
-        ListNode currNode=head;
-//        int k=0;
-//        while(p1!=p2)
-//        {
-//            p1=p1.next;
-//            k++;
-//        }
-        p1=LoopPoint;
-        while(true)
+        ListNode ptr1= slow;
+        int k=0;
+        while(ptr1.next!=slow)
         {
-            currNode=p1;
-            if(p1.next==p2)
-            {
-
-                break;
-            }
-            p1=p1.next;
+            ptr1=ptr1.next;
+            k++;
         }
-        currNode.next=null;
+        ptr1=head;
+        while (k!=-1)
+        {
+            ptr1=ptr1.next;
+            k--;
+        }
+        while(ptr1!=head)
+        {
+            ptr1=ptr1.next;
+            head=head.next;
+        }
+        ptr1=head;
+        while(ptr1.next!=head)
+        {
+            ptr1=ptr1.next;
+        }
+        ptr1.next=null;
+        //        for (ListNode curr = head; curr != null; curr = curr.next)
+//        {
+//            // start a pointer `ptr` from the `slow` node and
+//            // check if it meets the current node `curr`
+//            ListNode ptr = slow;
+//            while (ptr.next != slow && ptr.next != curr) {
+//                ptr = ptr.next;
+//            }
+//
+//            // If `ptr` meets `curr`, then that means there is a loop, and `curr`
+//            // points to the first node of the loop and `ptr` points to the last node
+//            if (ptr.next == curr)
+//            {
+//                // set next pointer of `ptr` to `null` to break the chain
+//                ptr.next = null;
+//                return;
+//            }
+//        }
+//        ===================================================================
+
+        //        if(slow==fast)
+//        {
+//            if(slow.next==fast.next)
+//            {
+//                slow=head;
+//                while(slow.next!=fast)
+//                {
+//                    slow=slow.next;
+//                }
+//                slow.next=null;
+//            }
+//        }
+//        else
+//        {
+//            slow=head;
+//            while(slow.next!=fast.next)
+//            {
+//                slow=slow.next;
+//                fast=fast.next;
+//            }
+//            fast.next=null;
+//        }
     }
     public void display()
     {
