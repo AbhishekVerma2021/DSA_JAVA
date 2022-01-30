@@ -14,26 +14,17 @@ public class DeleteFromPosition
     }
     public void PosDelete(int pos)
     {
-        ListNode currNode=head,fast=head,slow=head;
-        for(int i=1;i<=pos;i++)
-        {
-            if(i==pos-1)
-            {
-                slow=currNode;
-            }
-            if(i==pos)
-            {
-                fast=currNode.next;
-            }
-            currNode=currNode.next;
-        }
-        slow.next=fast;
-        currNode=head;
-        while(currNode!=null)
-        {
-            System.out.println(currNode.data+" ");
-            currNode=currNode.next;
-        }
+       if(head==null)
+       {
+           return;
+       }
+       if()
+       ListNode temp=head;
+       while(temp.next!=null)
+       {
+           System.out.print(temp.data+" ");
+           temp=temp.next;
+       }
     }
     public void addFirst(int data)
     {
