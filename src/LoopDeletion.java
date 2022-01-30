@@ -32,45 +32,45 @@ public class LoopDeletion
     public void Loop_Deletion(ListNode slow)
     {
 //Using Hashing
-        ListNode currNode=head,prevNode=null;
-        Set<ListNode> List=new HashSet<>();
-        while(currNode!=null)
-        {
-            if(List.contains(currNode))
-            {
-                prevNode.next=null;
-                return;
-            }
-            List.add(currNode);
-            prevNode=currNode;
-            currNode=currNode.next;
-        }
+//        ListNode currNode=head,prevNode=null;
+//        Set<ListNode> List=new HashSet<>();
+//        while(currNode!=null)
+//        {
+//            if(List.contains(currNode))
+//            {
+//                prevNode.next=null;
+//                return;
+//            }
+//            List.add(currNode);
+//            prevNode=currNode;
+//            currNode=currNode.next;
+//        }
 //===================================================================================================================
-//        ListNode ptr1= slow,ptr2=head;
-//        int k=0;
-//        while(ptr1.next!=slow)
-//        {
-//            ptr1=ptr1.next;
-//            k++;
-//        }
-//        ptr1=head;
-//        while (k!=-1)
-//        {
-//            ptr1=ptr1.next;
-//            k--;
-//        }
-//        while(ptr1!=ptr2)
-//        {
-//            ptr1=ptr1.next;     //ptr1.next and ptr2.next will be pointing to the junction
-//            ptr2=ptr2.next;     //and ptr1=ptr2 will hold the junction value
-//        }
-//        //As ptr1 is already on juction we need to get the last node so we will start the ptr1
-//        //and check if ptr1.next=ptr2(junction) we will break loop there and point it to null
-//        while(ptr1.next!=ptr2)
-//        {
-//            ptr1=ptr1.next;
-//        }
-//        ptr1.next=null;
+        ListNode ptr1= slow,ptr2=head;
+        int k=0;
+        while(ptr1.next!=slow)
+        {
+            ptr1=ptr1.next;
+            k++;
+        }
+        ptr1=head;
+        while (k!=-1)
+        {
+            ptr1=ptr1.next;
+            k--;
+        }
+        while(ptr1!=ptr2)
+        {
+            ptr1=ptr1.next;     //ptr1.next and ptr2.next will be pointing to the junction
+            ptr2=ptr2.next;     //and ptr1=ptr2 will hold the junction value
+        }
+        //As ptr1 is already on juction we need to get the last node so we will start the ptr1
+        //and check if ptr1.next=ptr2(junction) we will break loop there and point it to null
+        while(ptr1.next!=ptr2)
+        {
+            ptr1=ptr1.next;
+        }
+        ptr1.next=null;
 //======================================================================================================================
 //        for (ListNode curr = head; curr != null; curr = curr.next)
 //        {
