@@ -56,6 +56,7 @@ public class LastNodeDeletion
         for(int i=0;i< s;i++)
         {
             list.addFirst(sc.nextInt());
+
         }
         list.LastDelete();
     }

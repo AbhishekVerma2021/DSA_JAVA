@@ -18,12 +18,37 @@ public class DeleteFromPosition
        {
            return;
        }
-       if()
-       ListNode temp=head;
-       while(temp.next!=null)
+       if(head.next==null && pos!=1)
        {
-           System.out.print(temp.data+" ");
-           temp=temp.next;
+           return;
+       }
+       else if(pos==1)
+       {
+           head=null;
+       }
+       else
+       {
+            ListNode currNode = head, slow = head;
+            while (pos != 1)
+            {
+                slow = currNode;
+                currNode = currNode.next;
+                pos--;//2//1
+            }
+            if (currNode.next == null)
+            {
+                slow.next = null;
+            }
+            else
+            {
+                slow.next = slow.next.next;
+            }
+        }
+       ListNode currNode=head;
+       while(currNode!=null)
+       {
+           System.out.println(currNode.data);
+           currNode=currNode.next;
        }
     }
     public void addFirst(int data)
@@ -48,10 +73,14 @@ public class DeleteFromPosition
         Scanner sc= new Scanner(System.in);
         int s=sc.nextInt();
         head=null;
-        for(int i=0;i< s;i++)
+        for(int i=0;i<s;i++)
         {
             list.addFirst(sc.nextInt());
         }
-        list.PosDelete(sc.nextInt());
+        int pos=sc.nextInt();
+        if(pos<=s)
+        {
+            list.PosDelete(pos);
+        }
     }
 }
