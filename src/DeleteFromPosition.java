@@ -14,42 +14,37 @@ public class DeleteFromPosition
     }
     public void PosDelete(int pos)
     {
-       if(head==null)
+       if(head==null||head.next==null)
        {
-           return;
-       }
-       if(head.next==null && pos!=1)
-       {
-           return;
-       }
-       else if(pos==1)
-       {
-           head=null;
-       }
-       else
-       {
-            ListNode currNode = head, slow = head;
-            while (pos != 1)
-            {
-                slow = currNode;
-                currNode = currNode.next;
-                pos--;//2//1
-            }
-            if (currNode.next == null)
-            {
-                slow.next = null;
-            }
-            else
-            {
-                slow.next = slow.next.next;
-            }
+            head=null;
+            return;
         }
-       ListNode currNode=head;
-       while(currNode!=null)
+       if(pos==1)
        {
-           System.out.println(currNode.data);
-           currNode=currNode.next;
+           head=head.next;
+           return;
        }
+        ListNode currNode=head;
+       while(pos>2)
+       {
+           currNode=currNode.next;
+        pos--;
+       }
+       currNode.next=currNode.next.next;
+    }
+
+    public void display()
+    {
+        if(head==null)
+        {
+            return;
+        }
+        ListNode currNode=head;
+        while(currNode!=null)
+        {
+            System.out.println(currNode.data+ " ");
+            currNode=currNode.next;
+        }
     }
     public void addFirst(int data)
     {
@@ -82,5 +77,6 @@ public class DeleteFromPosition
         {
             list.PosDelete(pos);
         }
+        list.display();
     }
 }
