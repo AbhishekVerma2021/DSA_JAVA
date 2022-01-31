@@ -1,18 +1,40 @@
 import java.util.List;
 import java.util.Scanner;
 
-public class DoublyLinkedList01
+public class InsertAtAnyPosDLL
 {
     static ListNode head,tail;
     static class ListNode
     {
         int data;
-        ListNode prev=null;
         ListNode next=null;
+        ListNode prev=null;
         ListNode(int data)
         {
             this.data=data;
         }
+    }
+    public void InsertAtAnyPosition(int pos,int data)
+    {
+        ListNode new1=new ListNode(data);
+        if(head==null)
+        {
+            head=new1;
+            return;
+        }
+
+        ListNode currNode=head;
+        while(pos>2)
+        {
+            currNode=currNode.next;
+            pos--;
+        }
+        ListNode tempNode=currNode.next;
+
+        currNode.next=new1;
+        new1.next=tempNode;
+        new1.prev=currNode;
+        currNode.next.next.prev=new1;
     }
     public void display()
     {
@@ -50,27 +72,17 @@ public class DoublyLinkedList01
         new1.prev=currNode;
         tail=new1;
     }
-    public void insertAtbeg(int data)
-    {
-        ListNode new1=new ListNode(data);
-        if(head!=null)
-        {
-            head.prev=new1;
-            new1.next=head;
-        }
-        head=new1;
-    }
-
     public static void main(String[] args)
     {
-        DoublyLinkedList01 list=new DoublyLinkedList01();
+        InsertAtAnyPosDLL list=new InsertAtAnyPosDLL();
         Scanner sc=new Scanner(System.in);
         int s=sc.nextInt();
         for(int i=0;i<s;i++)
         {
             list.insertele(sc.nextInt());
         }
-        list.insertAtbeg(7666);
+        list.InsertAtAnyPosition(sc.nextInt(),101);
         list.display();
+
     }
 }
