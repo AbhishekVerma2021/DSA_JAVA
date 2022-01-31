@@ -22,7 +22,13 @@ public class InsertAtAnyPosDLL
             head=new1;
             return;
         }
-
+        if(head.next==null&&pos==1)
+        {
+            head.next=new1;
+            new1.prev=head;
+            tail=new1;
+            return;
+        }
         ListNode currNode=head;
         while(pos>2)
         {
