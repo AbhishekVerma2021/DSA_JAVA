@@ -15,13 +15,18 @@ class linkedl
     public void inputdata(int data)
     {
         Node new1=new Node(data);
-        if(head!=null)
+        if(head==null)
         {
-            new1.next=head;
-
+            head=new1;
+            return;
         }
-        head=new1;
-        System.out.println("Inserted!!!");
+        Node currNode=head;
+        while(currNode.next!=null)
+        {
+            currNode=currNode.next;
+        }
+        currNode.next=new1;
+        new1.next=null;
     }
     public void revList()
     {
@@ -33,7 +38,9 @@ class linkedl
             currNode.next=prev;         // n1->null
             prev=currNode;              // prev=n1
             currNode=temp;              // currNode=n2
+
         }
+        head=prev;
     }
     public void display()
     {
@@ -55,7 +62,7 @@ public class Rev_LL
     {
         linkedl l1 = new linkedl();
         Scanner sc = new Scanner(System.in);
-        for(int i=0;i<5+5;i++)
+        for(int i=0;i<5;i++)
         {
             l1.inputdata(sc.nextInt());
         }
