@@ -2,33 +2,25 @@ import java.util.Stack;
 
 public class ReverseAStack
 {
-    public static void ReverseStack(Stack<Integer> st)
+    public static void ReverseStack(Stack<Integer> st,int s)
     {
-        if(st.size()>0)
-        {
-            int temp=st.peek();
-            st.pop();
-            ReverseStack(st);
-            InsertIntoStack(st,temp);
+        if(!st.isEmpty()) {
+            return;
         }
-        else
+        int temp = st.pop();
+        ReverseStack(st,s);
+        InsertIntoStack(st, temp,s);
+        }
+    public static void InsertIntoStack(Stack<Integer> st,int temp,int s)
+    {
+        if(s==0)
         {
             return;
         }
-    }
-    public static void InsertIntoStack(Stack<Integer> st,int temp)
-    {
-        if(st.isEmpty())
-        {
-            st.push(temp);
-        }
-        else
-        {
-            int t=st.peek();
-            st.pop();
-            InsertIntoStack(st,temp);
-            st.push(t);
-        }
+        int temp2=temp;
+        s--;
+        InsertIntoStack(st,temp,s);
+        st.push(temp2);
     }
     public static void main(String[] args) {
         Stack<Integer> stack=new Stack<>();
@@ -38,7 +30,7 @@ public class ReverseAStack
             System.out.println(i+"-");
         }
 
-        ReverseStack(stack);
+        ReverseStack(stack, stack.size());
         while(stack.isEmpty()!=true)
         {
             System.out.println(stack.pop());
