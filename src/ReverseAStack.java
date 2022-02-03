@@ -4,23 +4,24 @@ public class ReverseAStack
 {
     public static void ReverseStack(Stack<Integer> st,int s)
     {
-        if(!st.isEmpty()) {
-            return;
-        }
-        int temp = st.pop();
-        ReverseStack(st,s);
-        InsertIntoStack(st, temp,s);
-        }
-    public static void InsertIntoStack(Stack<Integer> st,int temp,int s)
-    {
-        if(s==0)
+        if(st.isEmpty())
         {
             return;
         }
-        int temp2=temp;
-        s--;
-        InsertIntoStack(st,temp,s);
-        st.push(temp2);
+        int temp=st.pop();
+        ReverseStack(st,s);
+        InsertAtBottom(st,temp);
+    }
+    public static void InsertAtBottom(Stack<Integer> st,int temp)
+    {
+        if(st.isEmpty())
+        {
+            st.push(temp);
+            return;
+        }
+        int t=st.pop();
+        InsertAtBottom(st,temp);
+        st.push(t);
     }
     public static void main(String[] args) {
         Stack<Integer> stack=new Stack<>();
