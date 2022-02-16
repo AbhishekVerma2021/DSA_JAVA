@@ -2,14 +2,14 @@ import java.util.Stack;
 
 public class ReverseAStack
 {
-    public static void ReverseStack(Stack<Integer> st,int s)
+    public static void ReverseStack(Stack<Integer> st)
     {
         if(st.isEmpty())
         {
             return;
         }
         int temp=st.pop();
-        ReverseStack(st,s);
+        ReverseStack(st);
         InsertAtBottom(st,temp);
     }
     public static void InsertAtBottom(Stack<Integer> st,int temp)
@@ -31,7 +31,7 @@ public class ReverseAStack
             System.out.println(i+"-");
         }
 
-        ReverseStack(stack, stack.size());
+        ReverseStack(stack);
         while(stack.isEmpty()!=true)
         {
             System.out.println(stack.pop());
