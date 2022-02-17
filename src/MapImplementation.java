@@ -11,6 +11,10 @@ public class MapImplementation
     {
         map.put(count,cap);
     }
+    public void fun(String key)
+    {
+        System.out.println(map.get(key));
+    }
     public static void main(String[] args)
     {
         Scanner sc= new Scanner(System.in);
@@ -24,9 +28,11 @@ public class MapImplementation
             obj.saveCountryCapital(count,cap);
         }
         Set<String> st =map.keySet();
-        for(String k : st)
-        {
-            System.out.println(k+"  =  "+map.get(k));
-        }
+//        for(String k : st)
+//        {
+//            System.out.println(k+"  =  "+map.get(k));
+//        }
+        String key=sc.nextLine();
+        obj.fun(key);
     }
 }
