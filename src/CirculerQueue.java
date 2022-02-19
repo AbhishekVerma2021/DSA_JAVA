@@ -39,13 +39,17 @@ public class CirculerQueue
         {
             System.out.println("Underflow!!!");
         }
+        else if (begin+1==size)
+        {
+            arr[begin]=0;
+            begin=0;
+        }
         else
         {
-            System.out.println("Deleting");
             arr[begin]=0;
             begin++;
-            f--;
         }
+        System.out.println("Deleting");
     }
     public void enqueue(int data)
     {
