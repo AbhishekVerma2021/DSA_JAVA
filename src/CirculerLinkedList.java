@@ -12,6 +12,32 @@ public class CirculerLinkedList
             this.data=data;
         }
     }
+    public void Deleteatpos(int pos)
+    {
+        if(head==null)
+        {
+            System.out.println("Error!!!");
+            return;
+        }
+        if(pos==1)
+        {
+            ListNode curr=head;
+            while(curr.next!=head)
+            {
+                curr=curr.next;
+            }
+            curr.next=head.next;
+            head=head.next;
+            return;
+        }
+        ListNode curr=head;
+        while(pos!=2)
+        {
+            pos--;
+            curr=curr.next;
+        }
+        curr.next=curr.next.next;
+    }
     public void InsertAtLast(int data)
     {
         ListNode n1=new ListNode(data);
@@ -72,11 +98,12 @@ public class CirculerLinkedList
         {
             obj.InsertAtLast(sc.nextInt());
         }
-        System.out.println("____________");
-        int data=sc.nextInt();
-        System.out.println("__________________________");
-        obj.InsertatAanyPos(2, data);
-        System.out.println("__________");
+//        System.out.println("____________");
+//        int data=sc.nextInt();
+//        System.out.println("__________________________");
+//        obj.InsertatAanyPos(2, data);
+//        System.out.println("__________");
+        obj.Deleteatpos(sc.nextInt());
         obj.display();
     }
 }
