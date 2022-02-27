@@ -117,6 +117,25 @@ public class LinkedListFullImplimentation
         }
         curr.next=curr.next.next;
     }
+    public void InsertAtAnyPos(int data, int pos)
+    {
+        Node new1= new Node(data);
+        Node currNode=head;
+        if(head==null && pos==1)
+        {
+            head=new1;
+        }
+        else {
+
+            while (pos != 2) {
+                currNode = currNode.next;
+                pos--;
+            }
+            Node tempNode = currNode.next;
+            currNode.next = new1;
+            new1.next = tempNode;
+        }
+    }
     public void display()
     {
         Node curr=head;

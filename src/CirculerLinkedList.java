@@ -31,7 +31,28 @@ public class CirculerLinkedList
     }
     public void InsertatAanyPos(int pos,int data)
     {
-        if
+        ListNode n1=new ListNode(data);
+        if(head==null&&pos==1)
+        {
+            head=n1;
+            head.next=head;
+            return;
+        }
+        if(pos==1)
+        {
+            n1.next=head;
+            head=n1;
+            return;
+        }
+        ListNode curr=head;
+        while(pos!=2)
+        {
+            pos--;
+            curr=curr.next;
+        }
+        n1.next=curr.next;
+        curr.next=n1;
+
     }
     public void display()
     {
@@ -51,7 +72,11 @@ public class CirculerLinkedList
         {
             obj.InsertAtLast(sc.nextInt());
         }
-
+        System.out.println("____________");
+        int data=sc.nextInt();
+        System.out.println("__________________________");
+        obj.InsertatAanyPos(2, data);
+        System.out.println("__________");
         obj.display();
     }
 }
