@@ -25,12 +25,12 @@ public class LastNodeDeletion
         }
         currNode.next=null;
         currNode=head;
-        while (currNode.next!=null)
+        while (currNode!=null)
         {
             System.out.print(currNode.data+ " ");
             currNode=currNode.next;
         }
-    }
+     }
     public void addFirst(int data)
     {
         ListNode new1=new ListNode(data);
@@ -45,6 +45,7 @@ public class LastNodeDeletion
             currNode=currNode.next;
         }
         currNode.next=new1;
+        new1.next=null;
         //System.out.println("Sucessfully added!!!");
     }
     public static void main(String[] args)
