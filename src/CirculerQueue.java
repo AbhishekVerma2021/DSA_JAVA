@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class CirculerQueue
 {
     int top,begin,size;
-    static int arr[],f=0;
+    static int arr[];
     CirculerQueue(int size)
     {
         arr = new int[size];
@@ -17,10 +17,7 @@ public class CirculerQueue
         {
             return true;
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
     public boolean isfull()
     {
@@ -38,6 +35,7 @@ public class CirculerQueue
         if(isempty())
         {
             System.out.println("Underflow!!!");
+            return;
         }
         else if (begin+1==size)
         {
@@ -58,7 +56,7 @@ public class CirculerQueue
             top++;
             begin=0;
             arr[begin]=data;
-            f++;
+            return;
         }
         else if(isfull())
         {
@@ -81,7 +79,6 @@ public class CirculerQueue
                 top++;
             }
             arr[top]=data;
-            f++;
         }
     }
 
