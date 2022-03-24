@@ -14,7 +14,8 @@ public class Lab_02
             {
                 if(str.charAt(i)>47&&str.charAt(i)<58)
                 {
-                    sum+=Integer.parseInt(String.valueOf(str.charAt(i)));
+                    sum+=Integer.valueOf(str.charAt(i));
+                    System.out.println(sum);
                     f++;
                 }
             }
