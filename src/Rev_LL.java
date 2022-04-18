@@ -32,8 +32,8 @@ class linkedl
     {
         Node currNode= head;
         Node prev= null;
-        while(currNode!=null)
-        {
+        while(currNode!=null)                  //   n1   n2   n3   n4
+        {                                  //      prev  temp
             Node temp = currNode.next;  // temp=n2
             currNode.next=prev;         // n1->null
             prev=currNode;              // prev=n1
