@@ -38,7 +38,18 @@ public class LongestPalindrom
         System.out.println(str);
     }
     public static void main(String[] args) {
-        String str="ABABABA bbAbb ABA abbbabbba asah jas";
-        longestPal(str);
+        String str="aab1baa";
+//        longestPal(str);
+        int f=0;
+        for(int i=0,j=str.length()-1;i<=str.length()/2&&j>= str.length()/2;i++,j--)
+        {
+            if(str.charAt(i)==str.charAt(j))
+                continue;
+            f++;
+        }
+        if(f==0)
+        {
+            System.out.println("YESS");
+        }
     }
 }
