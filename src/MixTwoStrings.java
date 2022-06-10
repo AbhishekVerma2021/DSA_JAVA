@@ -24,6 +24,7 @@ public class MixTwoStrings
                 str2[j]=ch;
                 j++;
             }
+            System.out.println(set1);
             j=0;
             char[] str3=new char[Str3.length()];
             for (char ch : Str3.toCharArray())
