@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -55,7 +55,7 @@ public class NoOfStringIn2DArray
         return max;
     }
     public static void main(String[] args) {
-        String str = "VERMA";
+        String str = "GEEKS";
         String input[] = {
                 "DGESAEKDCDGDD",
                 "BBDEAIDBS",
