@@ -49,7 +49,7 @@ public class PalindromeLinkedList
         ListNode prevNode=null;
         size--;
         while(currNode!=null)
-        {
+        {                                   // revesing the first half of the Linked List
             ListNode tempNode=currNode.next;
             currNode.next=prevNode;
             prevNode=currNode;

@@ -14,11 +14,7 @@ public class PrefixString
         Queue<Character> que=new LinkedList<>();
         for(String st : strs)
         {
-            char chstr[]=new char[st.length()];
-            for(int i=0;i<chstr.length;i++)
-            {
-                chstr[i]=st.charAt(i);
-            }
+            char chstr[]=st.toCharArray();
             if(que.isEmpty())
             {
                 for(int i=0;i<st.length();i++)
