@@ -2,63 +2,39 @@ import java.util.*;
 
 public class LongestPalindromeInString
 {
-    public static void subString(String str,ArrayList<String> strArr,String op)
+    public static String palindrome(String str)
     {
-        if(str.length()==0)
+        ArrayList<String> set=new ArrayList<>(); // For substrings
+        for(int i=0;i<str.length();i++) // aaaabbaa
         {
-            strArr.add(op);
-            return;
+            String s="";
+            for(int j=i;j<str.length();j++)
+            {
+                s+=str.charAt(j);
+                set.add(s);
+            }
         }
-        subString(str.substring(1),strArr,op);
-        subString(str.substring(1),strArr,op+str.charAt(0));
-    }
-    public static void longestPal(String str)
-    {
-        char[] ch=str.toCharArray();
-        ArrayList<String> strArr=new ArrayList<>();
-        subString(str,strArr,"");
+        System.out.println(set);
+        Collections.sort(set, Comparator.comparing(String::length).reversed());
 
-        Set<String> set = new HashSet<>();
-        for(int i=0;i<strArr.size();i++)
+        System.out.println(set);
+        for(String S:set)
         {
-            set.add(strArr.get(i));
-        }
-        String[] arr=new String[set.size()];
-        int p=0;
-        for(String st: set)
-        {
-            arr[p]=st;
-            p++;
-        }
-        Arrays.sort(arr, Comparator.comparingInt(String::length));
-        for (String s : arr)
-            System.out.println(s);
-        for(int k=strArr.size()-1;k>=0;k--)
-        {
-            int f=0,c=0;
-            for(int i=0;i<strArr.get(k).length()-1;i++)
+            String st="";
+            for (int i=S.length()-1;i>=0;i--)
             {
-                if(strArr.get(k).charAt(i)==strArr.get(k).charAt(i+1))
-                    continue;
-                c++;
+                st+=S.charAt(i);
             }
-            for(int i=0,j=strArr.get(k).length()-1;i<=strArr.get(k).length()/2&&j>=strArr.get(k).length()/2;i++,j--)
-            {
-                if(strArr.get(k).charAt(i)==strArr.get(k).charAt(j))
-                {
-                    continue;
-                }
-                f++;
-            }
-            if(f==0&&c!=0)
-            {
-                System.out.println(strArr.get(k)+"-");
-                break;
-            }
+            if(S.equals(st))
+                return st;
         }
+        System.out.println(set);
+        return "0";
     }
+
+
     public static void main(String[] args) {
         String str="aaaabbaa";
-        longestPal(str);
+        System.out.println(palindrome(str));
     }
 }

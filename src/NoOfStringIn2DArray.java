@@ -1,7 +1,5 @@
-
 import java.util.HashMap;
 import java.util.Map;
-
 public class NoOfStringIn2DArray
 {
     public static int stringCount(String str,String[] STR)
@@ -55,16 +53,15 @@ public class NoOfStringIn2DArray
         return max;
     }
     public static void main(String[] args) {
-        String str = "GEEKS";
+        String str = "VYOM";
         String input[] = {
-                "DGESAEKDCDGDD",
-                "BBDEAIDBS",
-                "BSGKHERKBK",
-                "DDDSDSDMSE",
-                "DDRDEGADARSHHDDE",
+                "DGESAEKDMCDGDD",
+                "BBDEOAIVYOVMDBS",
+                "BSGKOMHERVYKYBK",
+                "DDDSDYSDMVMSE",
+                "DDRDEGADOARSHHDDE",
                 "DDDADADEADG"
         };
-        int c=5/1;
         System.out.println(stringCount(str,input));
     }
 }
