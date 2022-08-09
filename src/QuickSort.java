@@ -1,3 +1,5 @@
+package FIRST.src;
+
 public class QuickSort
 {
     static void quicksort(int[] arr,int front,int end)
